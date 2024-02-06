@@ -42,7 +42,7 @@ class TodolistApplicationTests {
 			.uri("/todos")
 			.bodyValue(todo)
 			.exchange()
-			.expectStatus().isOk();
+			.expectStatus().isBadRequest();
 	}
 
 }
