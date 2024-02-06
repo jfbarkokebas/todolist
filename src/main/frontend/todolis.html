@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="todo.css">
+    <title>Todolist</title>
+</head>
+
+<body>
+    <header>
+        <h1>Lista de Tarefas</h1>
+        <span id="user_name">Fulano de Tal</span>
+    </header>
+    <div class="main">
+        <div class="top-container">
+            <button id="new_task">Nova tarefa</button>
+        </div>
+        <div class="table-wraper">
+            <table class="table">
+                <tr class="tr">
+                    <th class="th">Nome</th>
+                    <th>Descrição</th>
+                    <th>Realizado</th>
+                    <th>Priridade</th>
+                    <th>Editar</th>
+                    <th>Excluir</th>
+                </tr>
+                <tr class="tr">
+                    <td>Correção de Bugs</td>
+                    <td>Corrigir os testes unitários da aplicação</td>
+                    <td>false</td>
+                    <td>1</td>
+                    <td>
+                        <img id="update_img" src="./images/editar-30.png" alt="editar" onclick="editTask('update_img')">
+                    </td>
+                    <td>
+                        <img id="trash_img" src="./images/lixo-30.png" alt="excluir" onclick="removeTask('trash_img')">
+                    </td>
+                    
+                </tr>
+                <tr>
+                    <td>Criação de Usuário</td>
+                    <td>Criar uma nova entidade usuário</td>
+                    <td>false</td>
+                    <td>2</td>
+                    <td><img src="./images/editar-30.png" alt="editar"></td>
+                    <td><img src="./images/lixo-30.png" alt="excluir"></td>
+                </tr>
+            </table>
+        </div>
+        <div id="myModal" class="modal" >
+            <div class="modal-content" style="">
+                <span class="close">&times;</span>
+                <h2 style="font-size: 2rem;">Nova Tarefa</h2>
+                <table class="modal-table">
+                    <tr>
+                        <td class="td_dialog">
+                            <span>Nome:</span>
+                        </td>
+                        <td class="td_dialog">
+                            <input id="task_name" type="text">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td_dialog">
+                            <span>Descrição:</span>
+                        </td>
+                        <td class="td_dialog">
+                            <input id="description" type="text">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>Realizado:</span>
+                        </td>
+                        <td style="display: flex; align-items: center;">
+                            <input type="radio" id="sim-radioId" name="isavaliable" value="sim">
+                              <label for="html">Sim</label><br>
+                              <input type="radio" id="no_radioId" name="isavaliable" value="nao"
+                            style="margin-left: 12px;">
+                              <label for="css">Não</label><br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>Prioridade:</span>
+                        </td>
+                        <td>
+                            <input type="number" id="priority">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td style="text-align: end;">
+                            <button id="save_new_task">Salvar</button>
+                        </td>
+                    </tr>
+                    
+                    
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="script.js"></script>
+</body>
+
+</html>
