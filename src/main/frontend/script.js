@@ -63,6 +63,8 @@ async function postJSON(data) {
 
 function fillTable(response) {
 
+  //LIMPAR A TABELA ANTES DE PREENCHER.
+
   console.log("fillTable() ...");
   console.log(response);
 
@@ -85,22 +87,10 @@ function fillTable(response) {
         let rowPrioridade = document.createElement('td');
         rowPrioridade.innerHTML = r.prioridade;
 
-        let rowUpdate = document.createElement('td');
-        let updateImg = document.createElement('img');
-        updateImg.src = "./images/editar-30.png";
-        rowUpdate.appendChild(updateImg);
-
-        let rowTrash = document.createElement('td');
-        let trashImg = document.createElement('img');
-        trashImg.src = "./images/lixo-30.png";
-        rowTrash.appendChild(trashImg);
-
         tr.appendChild(rowNome);
         tr.appendChild(rowDescricao);
         tr.appendChild(rowRealizado);
         tr.appendChild(rowPrioridade);
-        tr.appendChild(rowUpdate);
-        tr.appendChild(rowTrash);
         tbody.appendChild(tr);
 
         console.log("tabela criada");

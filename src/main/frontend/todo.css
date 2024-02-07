@@ -57,15 +57,26 @@ button{
 
 .top-container {
     display: flex;
-    flex-direction: column;
     margin: 18px 0;
+    
 }
 
 .top-container button{
-    margin: 40px 0 8px 0;
-    background-color: rgb(140, 234, 46);
+    margin: 40px 30px 8px 0;
     font-weight: 500;
     
+}
+
+#new_task{
+  background-color: rgb(140, 217, 24);
+}
+
+#edit_task{
+  background-color: rgb(120, 85, 248);
+}
+
+#remove_task{
+  background-color: rgb(254, 71, 71);
 }
 
 #user_name{
