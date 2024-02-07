@@ -16,38 +16,21 @@
     <div class="main">
         <div class="top-container">
             <button id="new_task">Nova tarefa</button>
+            <button id="edit_task">Editar tarefa</button>
+            <button id="remove_task">Remover tarefa</button>
         </div>
         <div class="table-wraper">
-            <table class="table">
+            <table id="table" class="table">
                 <tr class="tr">
+                    <th class="th">Criação</th>
                     <th class="th">Nome</th>
-                    <th>Descrição</th>
-                    <th>Realizado</th>
-                    <th>Priridade</th>
-                    <th>Editar</th>
-                    <th>Excluir</th>
+                    <th class="th">Descrição</th>
+                    <th class="th">Realizado</th>
+                    <th class="th">Priridade</th>
                 </tr>
-                <tr class="tr">
-                    <td>Correção de Bugs</td>
-                    <td>Corrigir os testes unitários da aplicação</td>
-                    <td>false</td>
-                    <td>1</td>
-                    <td>
-                        <img id="update_img" src="./images/editar-30.png" alt="editar" onclick="editTask('update_img')">
-                    </td>
-                    <td>
-                        <img id="trash_img" src="./images/lixo-30.png" alt="excluir" onclick="removeTask('trash_img')">
-                    </td>
-                    
-                </tr>
-                <tr>
-                    <td>Criação de Usuário</td>
-                    <td>Criar uma nova entidade usuário</td>
-                    <td>false</td>
-                    <td>2</td>
-                    <td><img src="./images/editar-30.png" alt="editar"></td>
-                    <td><img src="./images/lixo-30.png" alt="excluir"></td>
-                </tr>
+                <tbody id="tbody">
+                    <!-- tabela dinâmica aqui -->
+                </tbody>
             </table>
         </div>
         <div id="myModal" class="modal" >
