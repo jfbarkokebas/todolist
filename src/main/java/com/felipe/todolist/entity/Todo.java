@@ -1,5 +1,7 @@
 package com.felipe.todolist.entity;
 
+import java.time.LocalDateTime;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -15,6 +17,8 @@ public class Todo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private LocalDateTime criationDate;
+
     @NotBlank
     private String nome;
     @NotBlank
@@ -22,7 +26,8 @@ public class Todo {
     private boolean realizado;
     private int prioridade;
     
-    public Todo(String nome, String descricao, boolean realizado, int prioridade) {
+    public Todo(LocalDateTime criationDate, @NotBlank String nome, @NotBlank String descricao, boolean realizado, int prioridade) {
+        this.criationDate = criationDate;
         this.nome = nome;
         this.descricao = descricao;
         this.realizado = realizado;
@@ -30,6 +35,14 @@ public class Todo {
     }
 
     public Todo() {
+    }
+
+    public LocalDateTime getCriationDate() {
+        return criationDate;
+    }
+
+    public void setCriationDate(LocalDateTime criationDate) {
+        this.criationDate = criationDate;
     }
 
     public Long getId() {
@@ -63,6 +76,4 @@ public class Todo {
         this.prioridade = prioridade;
     }
 
-    
-    
 }
