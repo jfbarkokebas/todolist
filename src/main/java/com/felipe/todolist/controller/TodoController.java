@@ -31,6 +31,11 @@ public class TodoController {
     List<Todo> list(){
         return todoService.list();
     }
+
+    @GetMapping("/listall")
+    List<Todo> listAll(){
+        return todoService.list();
+    }
     
     @PutMapping
     List<Todo> update(@RequestBody Todo todo){

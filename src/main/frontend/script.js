@@ -27,20 +27,32 @@ span.addEventListener("click", () => modal.style.display = "none");
 
 //handle with backend:
 
+const formTask = document.getElementById("form_task");
 const taskName = document.getElementById("task_name");
 const description = document.getElementById("description");
-const isAvaliable = document.getElementsByName("isavaliable");
+const isDone = document.getElementsByName("isavaliable");
 const priority = document.getElementById("priority");
 const saveNewTask = document.getElementById("save_new_task");
 const table = document.getElementById("table");
 const tbody = document.getElementById("tbody");
 let todosList = [];
 
-let data = {
-  "nome": "response",
-  "descricao": "testando response",
-  "realizado": true,
-  "prioridade": 0
+function jsonData(nome, descricao, realizado, prioridade ){
+  this.nome = nome;
+  this.descricao = descricao;
+  this.realizado =realizado;
+  this.prioridade = prioridade;
+}
+
+async function fetchDataOnLoad() {
+  try {
+    const response = await fetch("http://localhost:3001/todos");
+    const list = await response.json();
+    todosList = list;
+    console.log("success fetch: ",todosList);
+  } catch (error) {
+    console.error("Error:", error);
+  }
 }
 
 async function postJSON(data) {
@@ -61,10 +73,9 @@ async function postJSON(data) {
   }
 }
 
+
 function fillTable(response) {
-
   //LIMPAR A TABELA ANTES DE PREENCHER.
-
   console.log("fillTable() ...");
   console.log(response);
 
@@ -74,6 +85,9 @@ function fillTable(response) {
     response.map(
       r => {
         let tr = document.createElement('tr');
+
+        let rowCriation = document.createElement('td');
+        rowCriation.innerHTML = r.criationDate;
 
         let rowNome = document.createElement('td');
         rowNome.innerHTML = r.nome;
@@ -87,6 +101,7 @@ function fillTable(response) {
         let rowPrioridade = document.createElement('td');
         rowPrioridade.innerHTML = r.prioridade;
 
+        tr.appendChild(rowCriation);
         tr.appendChild(rowNome);
         tr.appendChild(rowDescricao);
         tr.appendChild(rowRealizado);
@@ -97,12 +112,44 @@ function fillTable(response) {
       })
   }
 }
+
+//MOCK
+let data = {
+  "nome": "response",
+  "descricao": "testando response",
+  "realizado": true,
+  "prioridade": 0
+}
 //carregando os dados na página:
-postJSON(data)
+//postJSON(data) //----------------------------------> DESFAZER
+
+
+fetchDataOnLoad();
+
+window.addEventListener("load", ()=>{
+  setTimeout(()=>{
+
+    fillTable(todosList);
+  },1000);
+})
 
 saveNewTask.addEventListener("click", () => {
-  console.log(todosList);
   modal.style.display = "none"
   fillTable(todosList);
 });
+
+formTask.addEventListener("submit", (e)=>{
+  e.preventDefault();
+
+  nameValue = taskName.value;
+  descriptioValue = description.value;
+  isDoneValue = isDone.value;
+  priorityValue = priority.value;
+  
+  data = new jsonData(nameValue, descriptioValue, isDoneValue, priorityValue);
+  console.log(data);
+  
+})
+
+
 

@@ -16,7 +16,7 @@ public class Todo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    
     private LocalDateTime criationDate;
 
     @NotBlank

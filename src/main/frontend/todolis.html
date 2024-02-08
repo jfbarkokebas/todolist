@@ -26,68 +26,68 @@
                     <th class="th">Nome</th>
                     <th class="th">Descrição</th>
                     <th class="th">Realizado</th>
-                    <th class="th">Priridade</th>
+                    <th class="th">Prioridade</th>
                 </tr>
                 <tbody id="tbody">
                     <!-- tabela dinâmica aqui -->
                 </tbody>
             </table>
         </div>
-        <div id="myModal" class="modal" >
+        <div id="myModal" class="modal">
             <div class="modal-content" style="">
                 <span class="close">&times;</span>
                 <h2 style="font-size: 2rem;">Nova Tarefa</h2>
-                <table class="modal-table">
-                    <tr>
-                        <td class="td_dialog">
-                            <span>Nome:</span>
-                        </td>
-                        <td class="td_dialog">
-                            <input id="task_name" type="text">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="td_dialog">
-                            <span>Descrição:</span>
-                        </td>
-                        <td class="td_dialog">
-                            <input id="description" type="text">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <span>Realizado:</span>
-                        </td>
-                        <td style="display: flex; align-items: center;">
-                            <input type="radio" id="sim-radioId" name="isavaliable" value="sim">
-                              <label for="html">Sim</label><br>
-                              <input type="radio" id="no_radioId" name="isavaliable" value="nao"
-                            style="margin-left: 12px;">
-                              <label for="css">Não</label><br>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <span>Prioridade:</span>
-                        </td>
-                        <td>
-                            <input type="number" id="priority">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                        </td>
-                        <td style="text-align: end;">
-                            <button id="save_new_task">Salvar</button>
-                        </td>
-                    </tr>
-                    
-                    
-                </table>
+                <form id="form_task">
+                    <table class="modal-table">
+                        <tr>
+                            <td class="td_dialog">
+                                <span>Nome:</span>
+                            </td>
+                            <td class="td_dialog">
+                                <input id="task_name" type="text">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="td_dialog">
+                                <span>Descrição:</span>
+                            </td>
+                            <td class="td_dialog">
+                                <input id="description" type="text">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>Realizado:</span>
+                            </td>
+                            <td style="display: flex; align-items: center;">
+                                <input type="radio" id="sim-radioId" name="isavaliable" value="sim">
+                                  <label for="html">Sim</label><br>
+                                  <input type="radio" id="no_radioId" name="isavaliable" value="nao"
+                                    style="margin-left: 12px;">
+                                  <label for="css">Não</label><br>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>Prioridade:</span>
+                            </td>
+                            <td>
+                                <input type="number" id="priority">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            </td>
+                            <td style="text-align: end;">
+                                <input type="submit" id="save_new_task"></input>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
             </div>
         </div>
     </div>
-    
+
     <script type="text/javascript" src="script.js"></script>
 </body>
 

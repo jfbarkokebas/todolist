@@ -1,5 +1,6 @@
 package com.felipe.todolist.service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.data.domain.Sort;
@@ -18,6 +19,7 @@ public class TodoService {
     }
     
     public List<Todo>  create(Todo todo){
+        todo.setCriationDate(LocalDateTime.now());
         todoRepository.save(todo);
         return list();
     }
